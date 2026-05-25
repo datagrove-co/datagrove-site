@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<Base
+  title="Datagrove: 404"
+  description="Page not found."
+>
+  <Header showBlog />
+  <main class="mx-auto max-w-3xl px-6 py-24 text-center sm:py-32">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-accent-700">
+      404 / Not found
+    </p>
+
+    <h1 class="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+      Pipeline came up empty.
+    </h1>
+
+    <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
+      The page you tried to load isn't part of this site. It may have been
+      moved, renamed, or never existed in the first place.
+    </p>
+
+    <p class="mx-auto mt-6 max-w-xl font-mono text-sm text-slate-500">
+      Requested: <code
+        id="not-found-path"
+        class="rounded bg-slate-100 px-1.5 py-0.5 text-slate-700"
+        >/unknown</code
+      >
+    </p>
+
+    <div class="mt-12 flex justify-center">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-slate-800 transition-colors"
+      >
+        <svg
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 10H4" />
+          <path d="M8 4 2 10l6 6" />
+        </svg>
+        Back to home
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<script>
+  const pathEl = document.getElementById("not-found-path");
+  if (pathEl) {
+    pathEl.textContent = window.location.pathname;
+  }
+</script>

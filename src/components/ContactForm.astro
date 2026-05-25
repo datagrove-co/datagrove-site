@@ -1,11 +1,33 @@
 ---
 const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
 ---
-<section id="contact" class="border-t border-slate-100">
-  <div class="mx-auto max-w-3xl px-6 py-20 sm:py-24">
+<section id="contact" class="relative border-t border-slate-100">
+  <!-- Top-right signal arcs (clipped to section) -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <svg
+      class="absolute -top-10 -right-10 hidden text-accent-300/40 sm:block"
+      width="420"
+      height="420"
+      viewBox="0 0 420 420"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
+      <circle cx="420" cy="0" r="120" />
+      <circle cx="420" cy="0" r="200" />
+      <circle cx="420" cy="0" r="280" />
+      <circle cx="420" cy="0" r="360" />
+    </svg>
+  </div>
+
+  <div class="relative mx-auto max-w-3xl px-6 py-20 sm:py-24">
     <div class="max-w-xl">
       <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-        Let's talk
+        Let's
+        <span class="relative inline-block">
+          <span class="relative z-10">talk</span>
+          <span aria-hidden="true" class="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent-200/70"></span>
+        </span>
       </h2>
       <p class="mt-4 text-lg text-slate-600">
         Tell us about the work. We'll reply within a couple of business days.
@@ -62,6 +84,19 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
           class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-slate-800 transition-colors disabled:cursor-not-allowed disabled:opacity-60"
         >
           Send message
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 2 11 13" />
+            <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
+          </svg>
         </button>
       </div>
     </form>
@@ -91,7 +126,7 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
 
       if (response.ok && result.success) {
         form.reset();
-        status.textContent = "Thanks — we'll reply soon.";
+        status.textContent = "Thanks, we'll reply soon.";
         status.className = "text-sm text-accent-700";
       } else {
         status.textContent =
