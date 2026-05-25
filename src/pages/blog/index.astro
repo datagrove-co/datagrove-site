@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const posts = (
+  await getCollection("blog", ({ data }) => !data.draft)
+).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+<Base
+  title="Writing — Datagrove"
+  description="Notes on software engineering, data engineering, and consulting practice."
+>
+  <Header showBlog />
+  <main class="mx-auto max-w-3xl px-6 py-20 sm:py-24">
+    <h1 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+      Writing
+    </h1>
+
+    {posts.length === 0 ? (
+      <p class="mt-6 text-slate-600">Writing — soon.</p>
+    ) : (
+      <ul class="mt-12 grid gap-10">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`} class="group block">
+              <p class="text-xs uppercase tracking-widest text-slate-400">
+                {dateFormatter.format(post.data.pubDate)}
+              </p>
+              <h2 class="mt-2 text-xl font-semibold text-slate-900 group-hover:text-grove-700 transition-colors">
+                {post.data.title}
+              </h2>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {post.data.description}
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+  <Footer />
+</Base>
