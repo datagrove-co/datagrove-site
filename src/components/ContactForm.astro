@@ -30,7 +30,7 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
             name="name"
             required
             autocomplete="name"
-            class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-grove-500 focus:outline-none focus:ring-2 focus:ring-grove-200"
+            class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
           />
         </label>
         <label class="block">
@@ -40,7 +40,7 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
             name="email"
             required
             autocomplete="email"
-            class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-grove-500 focus:outline-none focus:ring-2 focus:ring-grove-200"
+            class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
           />
         </label>
       </div>
@@ -51,7 +51,7 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
           name="message"
           required
           rows="5"
-          class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-grove-500 focus:outline-none focus:ring-2 focus:ring-grove-200"
+          class="mt-2 block w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
         ></textarea>
       </label>
 
@@ -92,7 +92,7 @@ const WEB3FORMS_ACCESS_KEY = "d33eb24c-1953-486d-95d3-e5501cc5e322";
       if (response.ok && result.success) {
         form.reset();
         status.textContent = "Thanks — we'll reply soon.";
-        status.className = "text-sm text-grove-700";
+        status.className = "text-sm text-accent-700";
       } else {
         status.textContent =
           result.message ?? "Something went wrong. Please email us directly.";
